@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Stack } from '@atlaskit/primitives';
+import { Box, Text, Stack } from '@atlaskit/primitives';
 
 function Contact() {
   return (
@@ -8,7 +8,7 @@ function Contact() {
       backgroundColor="color.background.accent.blue.subtlest"
     >
       <Stack space="space.400" alignInline="center">
-        <Heading size="large" as="h2">Get in Touch</Heading>
+        <Text as="h2" style={{ fontSize: '2rem', fontWeight: 'bold' }}>Get in Touch</Text>
 
         <Box style={{ maxWidth: '600px', textAlign: 'center' }}>
           <Stack space="space.300">

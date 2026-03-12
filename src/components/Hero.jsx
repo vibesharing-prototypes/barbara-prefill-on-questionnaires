@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Stack } from '@atlaskit/primitives';
+import { Box, Text, Stack } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
 function Hero() {
@@ -15,9 +15,9 @@ function Hero() {
       }}
     >
       <Stack space="space.300" alignInline="center">
-        <Heading size="xlarge" as="h1" style={{ color: token('color.text.inverse') }}>
+        <Text as="h1" style={{ fontSize: '3rem', fontWeight: 'bold', color: token('color.text.inverse') }}>
           Welcome to Our Landing Page
-        </Heading>
+        </Text>
         <Text size="large" style={{ color: token('color.text.inverse') }}>
           Building modern web experiences with Atlas Design System
         </Text>
