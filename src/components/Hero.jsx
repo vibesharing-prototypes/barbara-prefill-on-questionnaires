@@ -15,9 +15,9 @@ function Hero() {
       }}
     >
       <Stack space="space.300" alignInline="center">
-        <Text as="h1" style={{ fontSize: '3rem', fontWeight: 'bold', color: token('color.text.inverse') }}>
+        <Box as="h1" style={{ fontSize: '3rem', fontWeight: 'bold', color: token('color.text.inverse'), margin: 0 }}>
           Welcome to Our Landing Page
-        </Text>
+        </Box>
         <Text size="large" style={{ color: token('color.text.inverse') }}>
           Building modern web experiences with Atlas Design System
         </Text>
