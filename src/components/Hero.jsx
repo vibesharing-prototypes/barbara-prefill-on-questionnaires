@@ -1,26 +1,40 @@
-import { Box, Text, Stack } from '@atlaskit/primitives';
-import { token } from '@atlaskit/tokens';
+import { Box, Typography, Stack } from '@mui/material';
 
 function Hero() {
   return (
     <Box
-      paddingBlock="space.1000"
-      paddingInline="space.400"
-      backgroundColor="color.background.brand.bold"
-      style={{
+      sx={{
         minHeight: '80vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'primary.main',
+        paddingBlock: 8,
+        paddingInline: 3,
       }}
     >
-      <Stack space="space.300" alignInline="center">
-        <Box as="h1" style={{ fontSize: '3rem', fontWeight: 'bold', color: token('color.text.inverse'), margin: 0 }}>
+      <Stack spacing={3} alignItems="center">
+        <Typography
+          variant="h1"
+          component="h1"
+          sx={{
+            fontSize: '3rem',
+            fontWeight: 'bold',
+            color: 'primary.contrastText',
+            textAlign: 'center'
+          }}
+        >
           Welcome to Our Landing Page
-        </Box>
-        <Text size="large" style={{ color: token('color.text.inverse') }}>
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: 'primary.contrastText',
+            textAlign: 'center'
+          }}
+        >
           Building modern web experiences with Atlas Design System
-        </Text>
+        </Typography>
       </Stack>
     </Box>
   );

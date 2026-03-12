@@ -1,42 +1,58 @@
-import { Box, Text, Stack, Grid } from '@atlaskit/primitives';
+import { Box, Typography, Stack, Grid } from '@mui/material';
 
 function About() {
   return (
     <Box
-      paddingBlock="space.1000"
-      paddingInline="space.400"
-      backgroundColor="color.background.neutral"
+      sx={{
+        paddingBlock: 10,
+        paddingInline: 3,
+        backgroundColor: 'background.default',
+      }}
     >
-      <Stack space="space.600" alignInline="center">
-        <Box as="h2" style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>About Our Project</Box>
+      <Stack spacing={6} alignItems="center">
+        <Typography variant="h2" component="h2" sx={{ fontSize: '2rem', fontWeight: 'bold' }}>
+          About Our Project
+        </Typography>
 
-        <Grid templateColumns="1fr 1fr 1fr" gap="space.400" xcss={{ maxWidth: '1200px' }}>
-          <Box padding="space.300" backgroundColor="color.background.neutral.subtle">
-            <Stack space="space.200">
-              <Box as="h3" style={{ fontSize: '1.25rem', fontWeight: 'semibold', margin: 0 }}>Modern Design</Box>
-              <Text>
-                Built with Atlas Design System, ensuring consistent and accessible user interfaces.
-              </Text>
-            </Stack>
-          </Box>
+        <Grid container spacing={3} sx={{ maxWidth: '1200px' }}>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ padding: 3, backgroundColor: 'background.paper', borderRadius: 1 }}>
+              <Stack spacing={2}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 'semibold' }}>
+                  Modern Design
+                </Typography>
+                <Typography variant="body1">
+                  Built with Atlas Design System, ensuring consistent and accessible user interfaces.
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
 
-          <Box padding="space.300" backgroundColor="color.background.neutral.subtle">
-            <Stack space="space.200">
-              <Box as="h3" style={{ fontSize: '1.25rem', fontWeight: 'semibold', margin: 0 }}>Fast Performance</Box>
-              <Text>
-                Powered by Vite and React for lightning-fast development and optimal user experience.
-              </Text>
-            </Stack>
-          </Box>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ padding: 3, backgroundColor: 'background.paper', borderRadius: 1 }}>
+              <Stack spacing={2}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 'semibold' }}>
+                  Fast Performance
+                </Typography>
+                <Typography variant="body1">
+                  Powered by Vite and React for lightning-fast development and optimal user experience.
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
 
-          <Box padding="space.300" backgroundColor="color.background.neutral.subtle">
-            <Stack space="space.200">
-              <Box as="h3" style={{ fontSize: '1.25rem', fontWeight: 'semibold', margin: 0 }}>Scalable Architecture</Box>
-              <Text>
-                Component-based structure makes it easy to maintain and extend functionality.
-              </Text>
-            </Stack>
-          </Box>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ padding: 3, backgroundColor: 'background.paper', borderRadius: 1 }}>
+              <Stack spacing={2}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 'semibold' }}>
+                  Scalable Architecture
+                </Typography>
+                <Typography variant="body1">
+                  Component-based structure makes it easy to maintain and extend functionality.
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
         </Grid>
       </Stack>
     </Box>

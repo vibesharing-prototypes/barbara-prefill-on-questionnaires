@@ -1,34 +1,50 @@
-import { Box, Text, Stack } from '@atlaskit/primitives';
+import { Box, Typography, Stack } from '@mui/material';
 
 function Contact() {
   return (
     <Box
-      paddingBlock="space.800"
-      paddingInline="space.400"
-      backgroundColor="color.background.accent.blue.subtlest"
+      sx={{
+        paddingBlock: 8,
+        paddingInline: 3,
+        backgroundColor: 'action.hover',
+      }}
     >
-      <Stack space="space.400" alignInline="center">
-        <Box as="h2" style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>Get in Touch</Box>
+      <Stack spacing={4} alignItems="center">
+        <Typography variant="h2" component="h2" sx={{ fontSize: '2rem', fontWeight: 'bold' }}>
+          Get in Touch
+        </Typography>
 
-        <Box style={{ maxWidth: '600px', textAlign: 'center' }}>
-          <Stack space="space.300">
-            <Text>
+        <Box sx={{ maxWidth: '600px', textAlign: 'center' }}>
+          <Stack spacing={3}>
+            <Typography variant="body1">
               Have questions or want to learn more about our project? We'd love to hear from you!
-            </Text>
+            </Typography>
 
-            <Stack space="space.200">
-              <Text weight="semibold">Email</Text>
-              <Text>contact@example.com</Text>
+            <Stack spacing={2}>
+              <Typography variant="subtitle1" fontWeight="semibold">
+                Email
+              </Typography>
+              <Typography variant="body1">
+                contact@example.com
+              </Typography>
             </Stack>
 
-            <Stack space="space.200">
-              <Text weight="semibold">Phone</Text>
-              <Text>+1 (555) 123-4567</Text>
+            <Stack spacing={2}>
+              <Typography variant="subtitle1" fontWeight="semibold">
+                Phone
+              </Typography>
+              <Typography variant="body1">
+                +1 (555) 123-4567
+              </Typography>
             </Stack>
 
-            <Stack space="space.200">
-              <Text weight="semibold">Location</Text>
-              <Text>San Francisco, CA</Text>
+            <Stack spacing={2}>
+              <Typography variant="subtitle1" fontWeight="semibold">
+                Location
+              </Typography>
+              <Typography variant="body1">
+                San Francisco, CA
+              </Typography>
             </Stack>
           </Stack>
         </Box>
