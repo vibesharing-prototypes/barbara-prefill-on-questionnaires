@@ -1,9 +1,11 @@
+import Hero from './components/Hero';
+
 function App() {
   return (
     <div>
-      <h1>Landing Page</h1>
+      <Hero />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
