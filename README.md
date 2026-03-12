@@ -1,16 +1,74 @@
-# React + Vite
+# Atlas Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern landing page built with React, Vite, and Atlassian's Atlas Design System.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Hero Section**: Eye-catching hero with brand colors
+- **About Section**: Three-column grid showcasing key features
+- **Contact Section**: Contact information and details
+- **Atlas Design System**: Built with @atlaskit/primitives and @atlaskit/tokens for consistent, accessible UI
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19**: Modern React with hooks
+- **Vite 7**: Fast build tool and dev server
+- **Atlas Design System**: Atlassian's design system components
+  - @atlaskit/css-reset
+  - @atlaskit/tokens
+  - @atlaskit/primitives
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Hero.jsx      # Hero section component
+│   ├── About.jsx     # About section component
+│   └── Contact.jsx   # Contact section component
+├── App.jsx           # Main app component
+└── main.jsx          # Entry point
+```
+
+## Code Quality
+
+- ESLint configured with React rules
+- Follows Atlas Design System best practices
+- Accessible and responsive design
+
+## License
+
+MIT
