@@ -1,6 +1,10 @@
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, Button } from '@mui/material';
+import { Assignment as AssignmentIcon } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -24,7 +28,7 @@ function Hero() {
             textAlign: 'center'
           }}
         >
-          Welcome to Our Landing Page
+          Questionnaire Prefill System
         </Typography>
         <Typography
           variant="h5"
@@ -33,8 +37,23 @@ function Hero() {
             textAlign: 'center'
           }}
         >
-          Building modern web experiences with Atlas Design System
+          Intelligent data prefilling with smart field matching and comparison
         </Typography>
+        <Button
+          variant="contained"
+          size="large"
+          startIcon={<AssignmentIcon />}
+          onClick={() => navigate('/questionnaire/demo-esg-2025')}
+          sx={{
+            backgroundColor: 'background.paper',
+            color: 'primary.main',
+            '&:hover': {
+              backgroundColor: 'grey.100',
+            },
+          }}
+        >
+          View Demo Questionnaire
+        </Button>
       </Stack>
     </Box>
   );

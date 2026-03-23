@@ -11,7 +11,10 @@
       "Bash(curl:*)",
       "Bash(pkill:*)",
       "Bash(npm ls:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "mcp__figma-remote-mcp__get_design_context",
+      "mcp__Atlas__get_atlas_components",
+      "mcp__Atlas__get_atlas_component_docs"
     ]
   }
 }
