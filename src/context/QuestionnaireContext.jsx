@@ -119,6 +119,32 @@ export function QuestionnaireProvider({ children }) {
     updateAnswers(questionnaireId, newAnswers);
   }, [activePrefillSource, fieldMappings, updateAnswers]);
 
+  // Clear prefilled answers from questionnaire
+  const clearPrefilledAnswers = useCallback((questionnaireId) => {
+    setQuestionnaires(prev =>
+      prev.map(q => {
+        if (q.id === questionnaireId) {
+          // Remove all prefilled answers, keep only manually entered ones
+          const nonPrefilledAnswers = q.answers.filter(a => !a.isPrefilled);
+          return { ...q, answers: nonPrefilledAnswers };
+        }
+        return q;
+      })
+    );
+  }, []);
+
+  // Clear all answers from questionnaire (for manual prefill)
+  const clearAllAnswers = useCallback((questionnaireId) => {
+    setQuestionnaires(prev =>
+      prev.map(q => {
+        if (q.id === questionnaireId) {
+          return { ...q, answers: [] };
+        }
+        return q;
+      })
+    );
+  }, []);
+
   const value = {
     // State
     questionnaires,
@@ -149,6 +175,8 @@ export function QuestionnaireProvider({ children }) {
     addPrefillSource,
     updateFieldMappings,
     applyPrefillMappings,
+    clearPrefilledAnswers,
+    clearAllAnswers,
   };
 
   return (

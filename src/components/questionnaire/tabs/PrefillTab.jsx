@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -21,8 +20,13 @@ import IndividualByQuestion from '../prefill/IndividualByQuestion';
 const steps = ['Select Source', 'Match Fields', 'Configure & Review'];
 
 function PrefillTab({ questionnaire }) {
-  const navigate = useNavigate();
-  const { activePrefillSource, prefillLayout, fieldMappings } = useQuestionnaireContext();
+  const {
+    activePrefillSource,
+    prefillLayout,
+    fieldMappings,
+    clearAllAnswers,
+    setFieldMappings,
+  } = useQuestionnaireContext();
   const [activeStep, setActiveStep] = useState(0);
   const [matchingCompleted, setMatchingCompleted] = useState(false);
 
@@ -34,8 +38,18 @@ function PrefillTab({ questionnaire }) {
     setActiveStep((prev) => prev - 1);
   };
 
-  const handleSourceSelected = () => {
-    handleNext();
+  const handleSourceSelected = (source) => {
+    // If manual source, skip matching and go directly to step 2
+    if (source && source.type === 'manual') {
+      // Clear ALL answers since we're starting fresh with manual entry
+      clearAllAnswers(questionnaire.id);
+      // Clear field mappings since there's no source to map from
+      setFieldMappings([]);
+      setActiveStep(2);
+      setMatchingCompleted(true);
+    } else {
+      handleNext();
+    }
   };
 
   const handleMatchingComplete = () => {

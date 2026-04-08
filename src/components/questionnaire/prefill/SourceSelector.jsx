@@ -25,6 +25,7 @@ import {
   UploadFile as UploadFileIcon,
   Link as LinkIcon,
   CheckCircle as CheckCircleIcon,
+  Edit as EditIcon,
 } from '@mui/icons-material';
 import { useQuestionnaireContext } from '../../../context/QuestionnaireContext';
 import { usePrefillSource } from '../../../hooks/usePrefillSource';
@@ -39,6 +40,7 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
     selectBoardSource,
     parseCSVFile,
     parseURLSource,
+    selectManualSource,
   } = usePrefillSource();
 
   const [sourceType, setSourceType] = useState('previous');
@@ -86,6 +88,15 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
       } catch (err) {
         console.error('Error fetching URL:', err);
       }
+    }
+  };
+
+  const handleManualPrefill = () => {
+    // Create a special "manual" source that bypasses field matching
+    const manualSource = selectManualSource();
+    // This will signal to skip the matching step
+    if (onSourceSelected) {
+      onSourceSelected(manualSource);
     }
   };
 
@@ -267,6 +278,29 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
                   </Stack>
                 </CardContent>
               )}
+            </Card>
+
+            {/* Manual Prefill */}
+            <Card variant="outlined">
+              <CardActionArea onClick={() => { setSourceType('manual'); handleManualPrefill(); }}>
+                <CardContent>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <FormControlLabel
+                      value="manual"
+                      control={<Radio />}
+                      label=""
+                      sx={{ m: 0 }}
+                    />
+                    <EditIcon color="primary" sx={{ fontSize: 40 }} />
+                    <Box sx={{ flex: 1 }}>
+                      <Typography variant="h6">Manual Prefill</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Enter prefill data manually without importing
+                      </Typography>
+                    </Box>
+                  </Box>
+                </CardContent>
+              </CardActionArea>
             </Card>
           </Stack>
         </RadioGroup>

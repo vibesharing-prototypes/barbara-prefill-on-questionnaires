@@ -138,6 +138,18 @@ export function usePrefillSource() {
     return activePrefillSource.data?.fields || [];
   }, [activePrefillSource]);
 
+  // Select manual prefill mode
+  const selectManualSource = useCallback(() => {
+    const source = {
+      type: 'manual',
+      name: 'Manual Entry',
+      data: { fields: [] },
+    };
+    setActivePrefillSource(source);
+    setError(null);
+    return source;
+  }, [setActivePrefillSource]);
+
   // Clear active source
   const clearSource = useCallback(() => {
     setActivePrefillSource(null);
@@ -153,6 +165,7 @@ export function usePrefillSource() {
     selectBoardSource,
     parseCSVFile,
     parseURLSource,
+    selectManualSource,
     getSourceFields,
     clearSource,
   };
