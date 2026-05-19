@@ -1,7 +1,7 @@
 {
-  "name": "questionnaire-prefill-demo",
+  "name": "temp-vite-project",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@diligentcorp/atlas-react-bundle": "https://atlas.diligent.com/react-bundle.tgz",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

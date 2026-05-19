@@ -15,7 +15,6 @@ export function QuestionnaireProvider({ children }) {
   const [prefillLayout, setPrefillLayout] = useState('default'); // 'default' | 'by-person' | 'by-question'
   const [selectedParticipant, setSelectedParticipant] = useState(null);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
-  const [participantStatuses, setParticipantStatuses] = useState({}); // { participantId: { status: 'not-started' | 'in-progress' | 'complete', notes: '' } }
 
   // Get questionnaire by ID
   const getQuestionnaire = useCallback((id) => {
@@ -146,22 +145,6 @@ export function QuestionnaireProvider({ children }) {
     );
   }, []);
 
-  // Update participant status
-  const updateParticipantStatus = useCallback((participantId, status, notes) => {
-    setParticipantStatuses(prev => ({
-      ...prev,
-      [participantId]: {
-        status,
-        notes: notes !== undefined ? notes : prev[participantId]?.notes || '',
-      },
-    }));
-  }, []);
-
-  // Get participant status
-  const getParticipantStatus = useCallback((participantId) => {
-    return participantStatuses[participantId] || { status: 'not-started', notes: '' };
-  }, [participantStatuses]);
-
   const value = {
     // State
     questionnaires,
@@ -173,7 +156,6 @@ export function QuestionnaireProvider({ children }) {
     prefillLayout,
     selectedParticipant,
     selectedQuestion,
-    participantStatuses,
 
     // Setters
     setActiveQuestionnaire,
@@ -182,7 +164,6 @@ export function QuestionnaireProvider({ children }) {
     setPrefillLayout,
     setSelectedParticipant,
     setSelectedQuestion,
-    setParticipantStatuses,
 
     // Methods
     getQuestionnaire,
@@ -196,8 +177,6 @@ export function QuestionnaireProvider({ children }) {
     applyPrefillMappings,
     clearPrefilledAnswers,
     clearAllAnswers,
-    updateParticipantStatus,
-    getParticipantStatus,
   };
 
   return (

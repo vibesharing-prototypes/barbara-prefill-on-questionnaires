@@ -8,9 +8,7 @@ import {
   Button,
   Paper,
   Stack,
-  Tooltip,
 } from '@mui/material';
-import { OpenInNew as OpenInNewIcon } from '@mui/icons-material';
 import { useQuestionnaireContext } from '../../../context/QuestionnaireContext';
 import SourceSelector from '../prefill/SourceSelector';
 import SmartMatcher from '../prefill/SmartMatcher';
@@ -65,12 +63,6 @@ function PrefillTab({ questionnaire }) {
     window.open(compareUrl, '_blank');
   };
 
-  const handleOpenPrefillInNewTab = () => {
-    // Open prefill in new tab
-    const prefillUrl = `/questionnaire/${questionnaire.id}/prefill`;
-    window.open(prefillUrl, '_blank');
-  };
-
   const handleStepClick = (step) => {
     // Allow navigation to any step if we have the required data
     if (step === 0) {
@@ -95,24 +87,13 @@ function PrefillTab({ questionnaire }) {
         <Typography variant="h5">
           Prefill Data
         </Typography>
-        <Stack direction="row" spacing={1} alignItems="center">
-          <Button
-            variant="outlined"
-            onClick={handleCompare}
-            disabled={!questionnaire.id.includes('2025')}
-          >
-            Compare with Previous Year
-          </Button>
-          <Tooltip title="Open prefill in a new tab">
-            <Button
-              variant="text"
-              onClick={handleOpenPrefillInNewTab}
-              startIcon={<OpenInNewIcon />}
-              sx={{ minWidth: 'auto', px: 1.5 }}
-            >
-            </Button>
-          </Tooltip>
-        </Stack>
+        <Button
+          variant="outlined"
+          onClick={handleCompare}
+          disabled={!questionnaire.id.includes('2025')}
+        >
+          Compare with Previous Year
+        </Button>
       </Box>
 
       <Paper sx={{ p: 3, mb: 4 }}>

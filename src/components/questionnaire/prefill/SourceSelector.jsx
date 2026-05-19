@@ -29,7 +29,6 @@ import {
 } from '@mui/icons-material';
 import { useQuestionnaireContext } from '../../../context/QuestionnaireContext';
 import { usePrefillSource } from '../../../hooks/usePrefillSource';
-import { red } from '@mui/material/colors';
 
 function SourceSelector({ questionnaire, onSourceSelected }) {
   const { questionnaires } = useQuestionnaireContext();
@@ -125,8 +124,8 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
             {/* Previous Questionnaire */}
             <Card variant="outlined">
               <CardActionArea onClick={() => setSourceType('previous')}>
-                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 1.5, flex: 1 }}>
+                <CardContent>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <FormControlLabel
                       value="previous"
                       control={<Radio />}
@@ -144,7 +143,7 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
                 </CardContent>
               </CardActionArea>
               {sourceType === 'previous' && (
-                <CardContent sx={{ p: 0 }}>
+                <CardContent sx={{ pt: 0 }}>
                   <Divider sx={{ mb: 2 }} />
                   <FormControl fullWidth size="small">
                     <Select
@@ -169,8 +168,8 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
             {/* Board Information */}
             <Card variant="outlined">
               <CardActionArea onClick={() => { setSourceType('board'); handleBoardSelect(); }}>
-                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 1.5, flex: 1 }}>
+                <CardContent>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <FormControlLabel
                       value="board"
                       control={<Radio />}
@@ -178,7 +177,7 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
                       sx={{ m: 0 }}
                     />
                     <DashboardIcon color="primary" sx={{ fontSize: 40 }} />
-                    <Box sx={{ flex: 1}}>
+                    <Box sx={{ flex: 1 }}>
                       <Typography variant="h6">Board Information</Typography>
                       <Typography variant="body2" color="text.secondary">
                         Pull data from your board management system
@@ -192,8 +191,8 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
             {/* Upload File */}
             <Card variant="outlined">
               <CardActionArea onClick={() => setSourceType('file')}>
-                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 1.5, flex: 1 }}>
+                <CardContent>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <FormControlLabel
                       value="file"
                       control={<Radio />}
@@ -211,7 +210,7 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
                 </CardContent>
               </CardActionArea>
               {sourceType === 'file' && (
-                <CardContent sx={{ p: 0 }}>
+                <CardContent sx={{ pt: 0 }}>
                   <Divider sx={{ mb: 2 }} />
                   <Paper
                     {...getRootProps()}
@@ -244,8 +243,8 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
             {/* URL */}
             <Card variant="outlined">
               <CardActionArea onClick={() => setSourceType('url')}>
-                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 1.5, flex: 1 }}>
+                <CardContent>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <FormControlLabel
                       value="url"
                       control={<Radio />}
@@ -263,7 +262,7 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
                 </CardContent>
               </CardActionArea>
               {sourceType === 'url' && (
-                <CardContent sx={{ p: 0 }}>
+                <CardContent sx={{ pt: 0 }}>
                   <Divider sx={{ mb: 2 }} />
                   <Stack direction="row" spacing={2}>
                     <TextField
@@ -284,8 +283,8 @@ function SourceSelector({ questionnaire, onSourceSelected }) {
             {/* Manual Prefill */}
             <Card variant="outlined">
               <CardActionArea onClick={() => { setSourceType('manual'); handleManualPrefill(); }}>
-                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 }, display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 1.5, flex: 1 }}>
+                <CardContent>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <FormControlLabel
                       value="manual"
                       control={<Radio />}

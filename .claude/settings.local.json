@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Atlas__search_atlas_tokens_by_path",
+      "Bash(claude mcp:*)",
+      "mcp__figma-remote-mcp__get_screenshot",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(rm:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(npm ls:*)",
+      "Bash(node:*)",
+      "mcp__figma-remote-mcp__get_design_context",
+      "mcp__Atlas__get_atlas_components",
+      "mcp__Atlas__get_atlas_component_docs"
+    ]
+  }
+}

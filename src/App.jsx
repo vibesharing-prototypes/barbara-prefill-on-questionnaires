@@ -4,7 +4,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import QuestionnaireBuilder from './components/questionnaire/QuestionnaireBuilder';
 import QuestionnaireCompare from './components/questionnaire/comparison/QuestionnaireCompare';
-import PrefillStandalone from './components/questionnaire/PrefillStandalone';
 
 function App() {
   return (
@@ -20,16 +19,12 @@ function App() {
         }
       />
       <Route
-        path="/questionnaire/:id/prefill"
-        element={<PrefillStandalone />}
+        path="/questionnaire/:id"
+        element={<QuestionnaireBuilder />}
       />
       <Route
         path="/questionnaire/:id/compare/:compareId"
         element={<QuestionnaireCompare />}
-      />
-      <Route
-        path="/questionnaire/:id"
-        element={<QuestionnaireBuilder />}
       />
     </Routes>
   );
