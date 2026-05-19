@@ -1,19 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import { AtlasThemeProvider } from '@diligentcorp/atlas-react-bundle'
-import '@diligentcorp/atlas-react-bundle/styles'
+import { MockAtlasThemeProvider } from './mocks/MockAtlasProvider'
 import { QuestionnaireProvider } from './context/QuestionnaireContext'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <AtlasThemeProvider>
+      <MockAtlasThemeProvider>
         <QuestionnaireProvider>
           <App />
         </QuestionnaireProvider>
-      </AtlasThemeProvider>
+      </MockAtlasThemeProvider>
     </BrowserRouter>
   </StrictMode>,
 )
